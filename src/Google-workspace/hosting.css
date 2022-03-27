@@ -1,0 +1,59 @@
+    .hosting-container-1{
+        background:linear-gradient(45deg, #FFE8B6, #8DFDFF);
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .offers-card{
+        padding: 20px 40px;
+        margin: 10px;
+        min-width: fit-content;
+        text-align: center;
+    }
+
+    .add-to-cart{
+        border-radius: 30px !important;
+        width: 100%;
+    }
+
+    .offers-content{
+        text-align: left;
+        padding: 20px 0;
+        line-height: 10px;
+    }
+    .offers-content h3{
+        line-height: 30px;
+    }
+
+    .text-with-background{
+        background-color: blue;
+        color: white;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    .g-workspace-h1 {
+        /* width: 60% */
+    }
+    .g-heading{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* justify-content: flex-start; */
+        align-content: flex-start;
+    }
+    .g-getting-start{
+    border-radius: 40px !important;
+    box-shadow: none !important;
+    width: 50%;
+    height: 50px;
+    font-weight: 700 !important;
+    }
+    .g-right-image{
+        width: 674px;
+        height: 350px;
+        object-fit: cover;
+    }

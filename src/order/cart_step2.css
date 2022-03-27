@@ -1,0 +1,44 @@
+.card-step2{
+    padding: 40px 10px;
+    background-color: #fafafa;
+}
+
+.card-container{  text-align: center;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    padding: 15px 10px;
+    position: relative;
+    height: fit-content;
+    margin: 15px 0px;
+}
+
+.card-container-flex{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+}
+
+.drop-down-year2{
+    padding: 10px;
+    background-color: #efefef;
+    border: none;
+    border-radius: 5px;
+}
+
+.remove-btn{
+    position: absolute !important;
+    top: 10px;
+    right: 10px;
+}
+
+.cart-2{
+    background-color: white;
+    border: 1px solid #dee2e6;
+    padding: 20px;
+}
+
+.final-cart{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}

@@ -1,0 +1,131 @@
+.stepper{
+    background-color: white;
+    padding: 40px 0px;
+}
+
+.background{
+    background-color: #f2f2f2;
+    min-height: 78vh;
+}
+
+.left-container{
+    background-color: white;
+    width: 100%;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.left-container-cards{
+    border: 1px solid #dbdbdb;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+    height: 50px;
+}
+.save-content{
+    background-color: #8c85ff;
+    padding: 5px 40px;
+    width: fit-content;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.left-container-left-flex{
+    /* flex-basis: 80%; */
+    width: 160px;
+}
+
+.right-container{
+    background: white;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    color: black;
+}
+.right-container-cards{
+    flex-wrap: wrap;
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #b5a5e2;
+    background-color: white;
+    position: relative;
+    justify-content: space-between;   
+}
+.right-conatiner-flex{
+    display: flex;
+    margin: 15px 0px;
+    justify-content: space-between;
+}
+
+
+.cutomised_order-btn{
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    border: 1px solid black;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: black;
+}
+
+.left-container-right-flex{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.right-container-right-flex{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.delete-btn-right-container{
+    position: absolute ;
+    right: 0;
+    top: 0;
+}
+.dropdown{    
+    padding: 5px;
+    margin-top: 10px;
+    outline: none;
+    background-color: #C4C4C4;
+    width: 80px;
+    border: none;
+}
+
+.coupen-code{
+    padding: 15px;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+/* iP */
+.search-button{
+    width: 100%;
+    margin: 15px;
+    background: linear-gradient(90deg,#0d40ce,#aad068);
+}
+.search-field{
+    border: 1px solid white;
+    /* background-color: transparent; */
+    padding: 15px;
+    margin: 20px 10px;
+    border-radius: 5px;
+    width: calc(100% - 200px);
+    outline: none;
+}
+.search-field::placeholder {
+    color: black;
+}
+body{
+    font-family:  Source Sans Pro,Segoe UI,sans-serif;
+}

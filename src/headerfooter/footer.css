@@ -1,0 +1,75 @@
+.helptab{
+        background-color: #3861fb;
+        text-align: center;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        color: white;
+        min-height: 100px;
+        flex-wrap: wrap;
+    }
+
+.sub-cat{
+    min-width: 200px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+
+.help-head-content{
+    width: fit-content;
+    padding: 0 10px;
+}
+
+.icons{
+    font-size: 50px !important;
+}
+
+.black-footer{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.help-head{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.heading{
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.head2{
+    font-weight: 800;
+}
+
+.vertical-list li {
+    list-style-type: none;
+    padding: 5px 0px;
+}
+.vertical-list{
+    margin-top: 20px;
+    /* width: 200px */
+    margin: 20px;
+}
+.all-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.payment-icons{
+    height: 40px;
+    width: 60px;
+    object-fit: cover;
+}
+.payment{
+    display: flex;
+    width: 250px;
+    justify-content: space-around;
+    margin: 10px 0px;
+}

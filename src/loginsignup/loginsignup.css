@@ -1,0 +1,29 @@
+.login, .signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    width: calc(100% - 80px) !important;
+    margin: auto;
+    width: 300px;
+    margin-top: 40px;
+}
+.signup {
+    background-color: rgba(0, 14, 156, 0.16);
+    width: fit-content;
+    margin: auto;
+    padding: 20px;
+}
+
+.login-signup{
+   background-color: #fafafa;
+}
+.login-signup-container{
+    text-align: center;
+    border: 1px solid #dee2e6;
+    /* border: 10px; */
+    margin: 20px 0;
+    margin-top: 60px;
+    background-color: white;
+    padding-left: 0px !important;
+}
