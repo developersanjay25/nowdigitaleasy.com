@@ -1,0 +1,24 @@
+.testimonials-home{
+    background-color: rgba(0, 161, 197, 0.16);
+    text-align: center;
+    padding: 20px;
+}
+.text-box-testmonial{
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 150px;
+    margin: 10px;
+}
+.horizontal-testimonials{
+    display: flex;
+    justify-content: space-around;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+
+}
+.home-page-testimonial-box{
+    width: 400px;
+    text-align: left;
+    margin: 10px;
+}

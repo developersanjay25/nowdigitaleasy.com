@@ -86,46 +86,31 @@ function RightContainer(props){
 
     const {pricing} = props;
 
-    // =================================Update Total Amount======================================================
-    useEffect(() => {
-       Updateamount();
-    },[cart,years])
-
-    function Updateamount(){
+    const Updateamount = () => {
       var amount = 0;
+      
+    cart.map((item,index) => {
+      if(item.type){
 
-      cart.map((item,index) => {
-        console.log(pricing[item.domain.split('.')[1]].register[years[index] ? years[index] : 1])
-        let price = pricing[item.domain.split('.')[1]].register[years[index]];
-        let reducedcost;
-        var splitdomain = item.domain.split('.')[1];
-        promocoderesdata.map((item) => {
-          console.log('requires',item.appliesto,splitdomain)
-          let startdate = new Date(item.startdate);
-          let expirydate = new Date(item.expirationdate);
-          let today = new Date();
-
-          if(startdate > today && expirydate < today){
-          if(item.appliesto.split('.')[1] == splitdomain){
-              reducedcost = (Number(item.value) / 100) * Number(price);
-              console.log('promo',reducedcost);
-          }
-        }
-        
-      });
-
-      amount += reducedcost ? Number(reducedcost) : Number(price);
-        
-      });
-
-      setTotalamount(amount.toFixed(2));
+      }
+      else
+      {
+      console.log(pricing[item.domain.split('.')[1]].register[years[index] ? years[index] : 1])
+      let price = pricing[item.domain.split('.')[1]].register[years[index]];
+      let reducedcost;
+ 
+       amount += reducedcost ? Number(reducedcost) : Number(price);
+      }
+    });
+ 
+    setTotalamount(amount.toFixed(2));
     }
 
   return (
     <Grow in={cart ? true : false}>
         <div>
   <div className="right" style={{backgroundColor:'rgba(15, 34, 231, 0.08)'}}>
-  <RightCard applypromocode={applypromocode} pricing={pricing}/>
+  {/* <RightCard applypromocode={applypromocode} pricing={pricing}/> */}
   </div>
   
   <ThemeProvider theme={theme}>
@@ -145,7 +130,7 @@ function RightContainer(props){
   </div>
   </ThemeProvider>
 
-  <input type='text' onClick={(e) => setStepperStep(1)} color="secondary" className='cutomised_order-btn' value='Continue Order'/>
+  <input type='text' onClick={(e) => window.location.href = '/cart'} color="secondary" className='cutomised_order-btn' value='Continue Order'/>
   </div>
   </Grow>)
 }

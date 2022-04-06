@@ -10,6 +10,7 @@ import Card from './cartfordomains'
 import RightContainer from './rightcontainer';
 import Cartdummy from './cartdummy';
 import axios from 'axios'
+import Cart2 from './Cart-2';
 
 
 
@@ -70,7 +71,9 @@ const Orderdomain = (props) => {
               <div className='right-container'>
               <Typography variant='subtitle1' style={{fontWeight:'bold'}}>Your Selection </Typography>
             
-          {cart.length ? <RightContainer pricing={pricingdata}/> : <Cartdummy /> }
+          {/* {cart.length ? <RightContainer pricing={pricingdata}/> : <Cartdummy /> } */}
+          {cart.length ? <Cart2/> : <Cartdummy /> }
+          
           
            </div>
           </Grid>

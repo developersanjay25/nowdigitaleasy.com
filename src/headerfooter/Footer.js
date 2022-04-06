@@ -6,12 +6,15 @@ import * as icons from '@mui/icons-material';
 import visa from '../images/VISA.png';
 import rupay from '../images/Rupay.png';
 import Mastercard from '../images/Mastercard.png';
+import theme from '../theme'
+import { ThemeProvider } from '@mui/private-theming';
 
 function Footer() {
   return (
+    <ThemeProvider theme={theme}>
     <div className='footer'>
         <div >
-            <Grid container alignItems='center' className='helptab'>
+            <Grid container alignItems='center' justifyContent='center' className='helptab'>
 
             <Grid item md={4} sm={12} xs={12}>
             <Typography variant='h2' className='help-head' style={{letterSpacing:'3px'}}>24/7 Customer Care</Typography>
@@ -74,52 +77,45 @@ function Footer() {
             <div className='vertical-list'>
                 <Typography variant='h3'>Company</Typography>
               
-                <li><Typography variant='h4'>About</Typography></li>
-                <li><Typography variant='h4'>Affilated</Typography></li>
-                <li><Typography variant='h4'>Blogs</Typography></li>
+                <li><Typography onClick={() => window.location.href = '/about/'} variant='h4'>About</Typography></li>
+                <li><Typography onClick={() => window.location.href = 'https://nowdigitaleasy.com/blog/'} variant='h4'>Blog</Typography></li>
+                <li><Typography  onClick={() => window.location.href = '/privacy-policy/'} variant='h4'>Privacy Policy</Typography></li>
+                <li><Typography variant='h4'>Terms and Condition</Typography></li>        
+            </div>
+
+
+
+            <div className='vertical-list'>
+                <Typography variant='h3'>Domain</Typography>
+              
+                <li><Typography variant='h4'>Domain Registration</Typography></li>
+                <li><Typography variant='h4'>Domain Transfer</Typography></li>
+                <li><Typography variant='h4'>Domain Renewal</Typography></li>
+                <li><Typography variant='h4'>ICANN Registrant Educational Materials</Typography></li>
+            </div>
+        
+
+            <div className='vertical-list'>
+                <Typography variant='h3'>Products</Typography>
+              
+                <li><Typography onClick={() => window.location.href = '/hosting/'} variant='h4'>Hosting</Typography></li>
+                <li><Typography onClick={() => window.location.href = '/google-workspace'} variant='h4'>G suite</Typography></li>
                 <li><Typography variant='h4'>Track eye</Typography></li>
-                <li><Typography variant='h4'>Privacy Policy</Typography></li>
-                <li><Typography variant='h4'>Terms and services</Typography></li>
-                
+                <li><Typography variant='h4'>Nowdigitaleasy Connect</Typography></li>
+            
             </div>
 
 
             <div className='vertical-list'>
                 <Typography variant='h3'>Support</Typography>
               
-                <li><Typography variant='h4'>Domain Policy</Typography></li>
-                <li><Typography variant='h4'>Pricing</Typography></li>
-                <li><Typography variant='h4'>Register Domains</Typography></li>
-                <li><Typography variant='h4'>Renew Domains</Typography></li>
-                <li><Typography variant='h4'>Transfer Domain</Typography></li>
-                <li><Typography variant='h4'>Whole Domain</Typography></li>
-                
+                <li><Typography variant='h4'>Open Tickets</Typography></li>
+                <li><Typography variant='h4'>Network status</Typography></li>
+                <li><Typography variant='h4'>Knowledgebase</Typography></li>
+                <li><Typography variant='h4'>Downloads</Typography></li>
             </div>
 
-            
-            <div className='vertical-list'>
-                <Typography variant='h3'>Products</Typography>
-              
-                <li><Typography variant='h4'>Dedicated Server</Typography></li>
-                <li><Typography variant='h4'>Email Hosting</Typography></li>
-                <li><Typography variant='h4'>Hosting Manager</Typography></li>
-                <li><Typography variant='h4'>Linux Server</Typography></li>
-                <li><Typography variant='h4'>Web Hosting</Typography></li>
-                <li><Typography variant='h4'>Hosting</Typography></li>
-                
-            </div>
-
-            <div className='vertical-list'>
-                <Typography variant='h3'>Information</Typography>
-              
-                <li><Typography variant='h4'>Email Marketing</Typography></li>
-                <li><Typography variant='h4'>Logo Design</Typography></li>
-                <li><Typography variant='h4'>Web Analytics</Typography></li>
-                <li><Typography variant='h4'>Web Design</Typography></li>
-                <li><Typography variant='h4'>Faq</Typography></li>
-                <li><Typography variant='h4'>Contact</Typography></li>
-                
-            </div>
+           
             </Grid>
 
             </Grid>
@@ -127,6 +123,7 @@ function Footer() {
             </div>
         </div>
     </div>
+    </ThemeProvider>
   )
 }
 

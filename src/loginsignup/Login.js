@@ -109,14 +109,23 @@ useEffect(() => {
 
 
     // place order
-    var domain= [],domaintype = [],regperiod = [];
+    var domain= [],domaintype = [],regperiod = [],pid = [];
 
     useEffect(() => {
 
         cart.map((item,index) => {
+            if(item.type){
+                domain.push(item.domain);
+                domaintype.push('');
+                regperiod.push(item.duration);       
+                pid.push(1) 
+            }
+        else{
             domain.push(item.domain);
             domaintype.push('register');
-            regperiod.push(year[index])
+            regperiod.push(year[index]);
+            pid.push('') 
+        }
         })
 
 
@@ -131,6 +140,7 @@ useEffect(() => {
             'domain' : domain,
             'domaintype' : domaintype,
             'regperiod' : regperiod,
+            'pid' : pid,
             'nameserver1' : 'ns1.demo.com',
             'nameserver2' : 'ns2.demo.com',
             'paymentmethod' : 'razorpay',
@@ -143,7 +153,8 @@ useEffect(() => {
                 if(data.data.result == "success"){
                     console.log('success');
                     setSetinvoiceid(data.data.invoiceid);
-                    setStepperStep(state => state+1);
+                    // setStepperStep(state => state+1);
+                    window.location.href = '/payment'
                     setPreloader(false);
                 }
             }).catch((err) => {

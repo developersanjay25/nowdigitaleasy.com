@@ -18,12 +18,12 @@
 
 .left-container-cards{
     border: 1px solid #dbdbdb;
-    padding: 20px 30px;
+    padding: 5px 30px;
     display: flex;
     align-items: center;
     background-color: white;
     justify-content: space-between;
-    height: 50px;
+    /* height: 50px; */
 }
 .save-content{
     background-color: #8c85ff;
@@ -36,7 +36,7 @@
 
 .left-container-left-flex{
     /* flex-basis: 80%; */
-    width: 160px;
+    width: 90px;
 }
 
 .right-container{
@@ -76,6 +76,8 @@
 .left-container-right-flex{
     margin: 5px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
 }
 

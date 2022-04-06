@@ -34,29 +34,25 @@ function Hompage() {
     })
   },[])
 
-
-
-// Setting domain array to hooks
-    useEffect(() => {
-    // setAllDomain(arr);
-    },[])
-
     var searchthisdomains = ['.in','.com','.org','.biz'];
 
 
 
     console.log(pricingdata)
 
+    console.log('years',years)
 
     useEffect(() => {
-      for(let i=0; i<cart.length;i++){
-        setYears(state => [...state,1])
-      }
+      if(years.length < cart.length){
+        for(let i=0; i<cart.length;i++){
+          setYears(state => [...state,1])
+          console.log('years');
+        }
+    }
 
     },[cart])
 
     
-    console.log('prici',years)
 
     // Api call
     function apicall(domaininputt){
@@ -73,13 +69,11 @@ function Hompage() {
     function search() {
       // Go daddy api call for domain availability
       setExactdomain([])
-      setYears([])
       setSearched(true)
       var splitted = domaininput.split('.');
 
       //==================================================Scroll to searched domain======================================================
       domainref.current.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
-      // domainref.current.scrollBehavior = 'smooth'; 
       
       // if user  gave domain also
       if(splitted[1] ){

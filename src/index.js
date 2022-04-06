@@ -9,23 +9,36 @@ import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
 import {RecoilRoot} from 'recoil'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Cart_step2 from './order/Cart-step2';
+import LoginSignup from './loginsignup/Loginsignup';
+import Proceedtopay from './order/Proceedtopay';
+import About from './details/About';
+import PrivacyPolicy from './details/PrivacyPolicy';
+import TermsandConditions from './details/TermsandConditions';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
       <RecoilRoot>
       <BrowserRouter>
+      <ThemeProvider theme={theme}>
       <Routes> 
 
       <Route path='/' element={<App />} />
       <Route path='/domain' element={<App />} />
       <Route path='/hosting' element={<Hosting />} />
+      <Route path='/cart' element={<Cart_step2 />} />
+      <Route path='/login' element={<LoginSignup />} />
+      <Route path='/payment' element={<Proceedtopay />} />
       <Route path='/google-workspace' element={<Googleworkspace />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+      <Route path='/termsandconditions' element={<TermsandConditions />} />
       </Routes>
+      </ThemeProvider>
       </BrowserRouter>
     </RecoilRoot>
-    </ThemeProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 

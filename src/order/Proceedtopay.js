@@ -7,6 +7,8 @@ import paymentproceed from '../images/Double Tick.png'
 import Typography from '@mui/material/Typography';
 import razorpay from '../images/razorpay.png'
 import paypal from '../images/paypal.png'
+import Header from '../headerfooter/Header'
+import Footer from '../headerfooter/Footer'
 
 function Proceedtopay() {
 
@@ -14,7 +16,8 @@ function Proceedtopay() {
     const [invoiceid , setSetinvoiceid] = useRecoilState(invoiceidd);
     const [perloader , setPreloader] = useRecoilState(preloaderr);
     const [paymentprosssed , setpaymentprossed] = useState(false);
-    
+      
+    console.log(Number(totalamount) * 100)
     
 function loadScript(src) {
     return new Promise((resolve) => {
@@ -45,7 +48,7 @@ function loadScript(src) {
         // creating a new order    
         const options = {
           key: "rzp_test_LlNbRaLp6AdCf2", // Enter the Key ID generated from the Dashboard
-          amount: totalamount * 100,
+          amount: (Number(totalamount) * 100).toFixed(2),
           currency: 'INR',
           name: "Iaaxin Tech Labs.",
           description: "Test Transaction",
@@ -122,11 +125,10 @@ function loadScript(src) {
     margin:'10px',
   }
 
-  return (
-    <div style={{backgroundColor:'#fafafa',width:'70%'}}>
+  return (<><Header />    <div style={{backgroundColor:'#fafafa',width:'70%'}}>
         <br />
         <br />
-
+        
         {paymentprosssed ?  
         
         <div style={paymentcss}>
@@ -147,6 +149,9 @@ function loadScript(src) {
         <br />
         <br />
     </div>
+    <Footer />
+    </>
+
   )
 }
 

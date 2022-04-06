@@ -1,0 +1,20 @@
+.google-testimonials{
+    background-color: #2e283c33;
+    text-align: center;
+    padding: 20px 40px 20px 0px;
+}
+.google-testimonials-box-flex{
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+.google-testimonials-box{
+    width: 350px;
+    margin: 20px;
+}
+
+.head-google-testimonials{
+    margin-bottom: 10px;
+}

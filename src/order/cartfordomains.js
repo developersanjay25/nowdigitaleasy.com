@@ -26,12 +26,11 @@ const Card = (props) => {
         }
         }
   }
+
   
-  // console.log(pricing.pricing.alldomain[0].domain.split('.')[1].register.year[0].year)
-  return (<>{(alldomain.map((arr,ind) =>
-  <div className='left-container-cards'>
+  return (<>{(alldomain.map((arr,ind) => <div className='left-container-cards'>
               <div className='left-container-left-flex'>
-              <Typography style={{fontSize:'1.2em',fontWeight:'500'}} color='secondary'>{arr.domain}</Typography>
+              <Typography style={{fontSize:'1.2em',fontWeight:'700'}} color='primary'>{arr.domain}</Typography>
               </div>
   
               <div className='left-container-right-flex'>
@@ -51,8 +50,9 @@ const Card = (props) => {
               <Button  variant='contained' onClick={() => addtocart(ind)}  color='primary' style={addtocartstyle}>Add to cart</Button>
               <Divider />
               </div>
-      </div>
-  ))}
+      </div>)
+  
+  )}
   </>
   );
   }

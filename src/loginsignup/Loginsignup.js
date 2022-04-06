@@ -5,6 +5,8 @@ import './loginsignup.css'
 import { ThemeProvider } from '@emotion/react';
 import Signup from './signup';
 import Cart2 from '../order/Cart-2';
+import Header from '../headerfooter/Header';
+import Footer from '../headerfooter/Footer';
 
 
 
@@ -36,9 +38,9 @@ function LoginSignup() {
 
   const [loginorsignup, setLoginorSugnup] = useState('login');
 
-  return (
-    <ThemeProvider theme={theme}>
+  return (<>
     <div className='login-signup'>
+    <Header />
     <br />
     
     <Grid container justifyContent='center' spacing={5}>
@@ -56,9 +58,9 @@ function LoginSignup() {
     </Grid>
     
     </Grid>
-    {/* <Signup /> */}
   </div>
-  </ThemeProvider>
+    <Footer />
+</>
   )
 }
 

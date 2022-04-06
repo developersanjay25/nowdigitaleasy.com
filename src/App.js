@@ -9,19 +9,8 @@ import FullDomainProtection from './order/FullDomainProtection';
 import LoginSignup from './loginsignup/Loginsignup';
 import Proceedtopay from './order/Proceedtopay';
 import Cart_step2 from './order/Cart-step2';
+import Testimonials from './order/Testimonials';
 
-function getStep(step){
-  switch(step){
-    case 0:
-      return <Hompage />
-    case 1:
-      return <Cart_step2 />
-    case 2:
-      return <LoginSignup/>
-    case 3:
-      return <Proceedtopay />
-    }
-}
 
 function App() {
   const [stepperstep,setStepperStep] = useRecoilState(stepperstepp);
@@ -38,8 +27,10 @@ function App() {
         <CircularProgress color="inherit" />
     </Backdrop>
 
-        {getStep(stepperstep)}
 
+
+        <Hompage />
+        <Testimonials />
       <Footer />  
      </div>
   );

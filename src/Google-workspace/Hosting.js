@@ -1,15 +1,83 @@
-import { Button, Grid, Typography } from '@mui/material'
-import React from 'react'
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from '@mui/material'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import Footer from '../headerfooter/Footer'
 import Header from '../headerfooter/Header'
 import './hosting.css'
 import Offers from './Offers'
 import gimage from '../images/g-suite-header.webp'
+import { useRecoilState } from 'recoil'
+import {dialogsizee, GSuitedataa, hostingdialogstepp, opendialogg} from '../atoms/hostingatoms'
+import CheckAlreadydomain from './Check-already-have-domain'
+import ExistingDomain from './ExistingDomain'
+import HostingOrder from './hosting-order'
+import Domainavailability from './Domainavailability'
+import GoogleTestimonials from './GoogleTestimonials';
+import axios from 'axios';
+
+const getstep = (step) => {
+  switch(step){
+    case 0:
+      return <HostingOrder />
+    case 1:
+      return <CheckAlreadydomain />
+    case 2:
+      return <ExistingDomain />
+    case 3:
+      return <Domainavailability />
+  }
+} 
+
 
 function Googleworkspace() {
+  const [open, setOpen] = useRecoilState(opendialogg);
+  const [stepperstep, setStepperStep] = useRecoilState(hostingdialogstepp);
+  const [Dialogsize, setDialogSize] = useRecoilState(dialogsizee);
+  const [GSuitedata, setGSuitedata] = useRecoilState(GSuitedataa);
+
+    const handleClose = () => {
+        setOpen(state => ({...state,open : false}));
+    };
+
+    useLayoutEffect(() => {
+      const params = {
+        identifier:'drtRhPBjT6DRgioybheFOpPgfFKLPxOt',
+        secret:'phmxeN4UIiytvM36FsMUrQlQvgk4Jjce',
+        accesskey:'ONEiaaxin_123',
+        action:'Getproducts',
+        responsetype:'json'
+      }
+    
+      axios.get('https://www.nowdigitaleasy.com/includes/api.php',{params})
+      .then((data) => {
+          console.log('products',data.data.products);
+          setGSuitedata(data.data.products);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },[])
+
+    console.log(GSuitedata);
+    
   return (
     <>
     <Header />
+
+    <Dialog
+        fullWidth
+        maxWidth = {Dialogsize}
+        width = 'fit-content'
+        open={open.open}
+        onClose={handleClose}
+      >
+        <DialogTitle>Google Workspace</DialogTitle>
+        <DialogContent style={{overflowX:'hidden'}}>
+          <DialogContentText>
+          {getstep(stepperstep)}
+          </DialogContentText>
+         </DialogContent>
+      </Dialog>
+
     <div className='hosting-container-1'>
       <Grid container justifyContent='center'>
         
@@ -33,23 +101,24 @@ function Googleworkspace() {
     </div>
 
     <Grid container justifyContent='center'>
-
     <Grid item md={3} sm={12} xs={12} >
-    <Offers />
+    <Offers data={GSuitedata.product[1]}/>
     </Grid>
 
     
     <Grid item md={3} sm={12} xs={12}>
-    <Offers />
+    <Offers data={GSuitedata.product[2]}/>
     </Grid>
 
     
     <Grid item md={3} sm={12} xs={12}>
-    <Offers />
+    <Offers data={GSuitedata.product[3]}/>
     </Grid>
 
     </Grid>
-
+    
+    <GoogleTestimonials />
+    
     <Footer />
     </>
   )

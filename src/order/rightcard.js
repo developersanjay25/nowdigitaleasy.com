@@ -14,7 +14,7 @@ const RightCard = (props) => {
     const { applypromocode } = props;
   
 
-  console.log(years)
+    console.log('years',years)
 
     // ==============================================Drop down for how much years==================================================
     const changedropdown = (e,index) => {
@@ -25,21 +25,26 @@ const RightCard = (props) => {
   ))
     }
 
-    console.log('pricing',applypromocode(cart[0].domain,pricing[cart[0].domain.split('.')[1]].register[1]),years);
+    // console.log('pricing',applypromocode(cart[0].domain,pricing[cart[0].domain.split('.')[1]].register[1]),years);
 
     //  =======================================Delete items on click=============================================================
       function deleteitems(e){
-     setCart(state => state.filter(item => item.domain != cart[e].domain));
-     var temp = [...years]
-     temp.splice(e, 1);
-     setYears(temp);
+      setCart(state => state.filter(item => item.domain != cart[e].domain));
+      var temp = [...years]
+      temp.splice(e, 1);
+      setYears(temp);
     }
   
     console.log('pricing',pricing['com'].register[1])
 
       return (<>
       {/* <TransitionGroup> */}
-        {cart.map((item,index) =>  <><div className='right-container-cards'>
+        {cart.map((item,index) =>  {
+          if(item.type){
+
+          }
+          else{
+          return <><div className='right-container-cards'>
                   
                   <div className='left-container-left-flex'>
                   <Typography style={{fontSize:'16px',fontWeight:'bold'}} color='secondary'>{item.domain}</Typography>
@@ -71,7 +76,9 @@ const RightCard = (props) => {
                   <IconButton color='secondary'  onClick={() => deleteitems(index)}><icons.DeleteOutline/></IconButton>
                   </div>
           </div>
-           </> )}
+           </>}
+           } 
+           )}
         {/* </TransitionGroup> */}
         </>
       );

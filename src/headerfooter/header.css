@@ -10,6 +10,7 @@
     display: flex;
     justify-content: space-around;
     width: 50%;
+    flex-wrap: wrap;
 }
 .navbar ul li button{
     font-size: 16px;
