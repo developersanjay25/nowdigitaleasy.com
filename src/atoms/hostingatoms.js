@@ -31,7 +31,7 @@ const opendialogg = atom({
 
   const g_emailCart = atom({
     key : 'g_emailCart',
-    default : {type : 'g-workspace',domainforgwork : '' , mailcount : 3,price : 0,duration : "annually",name : ''}
+    default : {type : 'g-workspace',domainforgwork : '' , mailcount : 3,price : 0,duration : "annually",name : '' ,pid : ''}
   });
 
   const gsuiteprice = atom({

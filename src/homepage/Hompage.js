@@ -21,7 +21,7 @@ function Hompage() {
   
 
   useEffect(() => {
-    setPreloader(true);
+    // setPreloader(true);
     // Api for pricing
     let url = 'https://www.nowdigitaleasy.com/includes/api.php?identifier=drtRhPBjT6DRgioybheFOpPgfFKLPxOt&secret=phmxeN4UIiytvM36FsMUrQlQvgk4Jjce&accesskey=ONEiaaxin_123&action=GetTLDPricing&responsetype=json&suffix=usd&code=inr'
      
@@ -145,11 +145,16 @@ function Hompage() {
       </div>
 
 
-      <div>
+      <div className='below-search-content'>
       <Typography variant='h3'>.store</Typography>
       <Typography variant='h3'>&#x20B9; 75</Typography>
       </div>
 
+      <div>
+      <Typography variant='h3'>.info</Typography>
+      <Typography variant='h3'>&#x20B9; 75</Typography>
+      </div>
+      
       </div>
     
     <br/>

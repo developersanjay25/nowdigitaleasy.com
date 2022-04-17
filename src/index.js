@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Googleworkspace from './Google-workspace/Hosting';
+import Googleworkspace from './Google-workspace/Gsuite';
 import Hosting from './hosting/Hosting';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@emotion/react';

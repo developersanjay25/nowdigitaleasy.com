@@ -1,7 +1,8 @@
-.hosting-order{
+.gsuite-order{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        /* justify-content: space-around; */
 }
 .hosting-order .vertical-list{
     width: fit-content !important;

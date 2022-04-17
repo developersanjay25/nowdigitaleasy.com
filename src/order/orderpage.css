@@ -23,6 +23,7 @@
     align-items: center;
     background-color: white;
     justify-content: space-between;
+    flex-wrap: wrap;
     /* height: 50px; */
 }
 .save-content{
@@ -32,6 +33,7 @@
     color: white;
     font-weight: bold;
     border-radius: 30px;
+    display: block;
 }
 
 .left-container-left-flex{
@@ -77,7 +79,7 @@
     margin: 5px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -130,4 +132,14 @@
 }
 body{
     font-family:  Source Sans Pro,Segoe UI,sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+    .save-content{
+        display: none;
+    }
+    .left-container-cards{
+        justify-content: center;
+    }
+
 }

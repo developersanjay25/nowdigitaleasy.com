@@ -71,8 +71,7 @@ const Orderdomain = (props) => {
               <div className='right-container'>
               <Typography variant='subtitle1' style={{fontWeight:'bold'}}>Your Selection </Typography>
             
-          {/* {cart.length ? <RightContainer pricing={pricingdata}/> : <Cartdummy /> } */}
-          {cart.length ? <Cart2/> : <Cartdummy /> }
+              {cart.length ? <Cart2/> : <Cartdummy /> }
           
           
            </div>

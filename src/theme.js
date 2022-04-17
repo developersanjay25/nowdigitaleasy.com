@@ -12,17 +12,15 @@ let theme = createTheme({
   },typography: {
     fontFamily: ['Roboto Condensed', 'sans-serif'],
     h1 : {
-        fontSize : 48,
+        fontSize : '48px',
         // lineHeight : '72px',
         fontWeight : '700',
         fontFamily: ['Roboto Condensed'],
-        
-      },
+        },
     h2 : {
         fontSize : '26px',
         fontWeight : '600',
-        fontFamily: ['Roboto Condensed'],
-        
+        fontFamily: ['Roboto Condensed'],  
     },
     h3:{
       fontSize : '17px',

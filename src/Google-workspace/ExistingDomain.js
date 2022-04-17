@@ -28,7 +28,7 @@ function ExistingDomain() {
         else{
 
         }
-}
+    }
 
     return (
     <Slide in={(stepper == 2)} direction="left">

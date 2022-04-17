@@ -22,7 +22,7 @@ function Footer() {
             </Grid>
 
             <div className='sub-cat'>    
-            <icons.PhoneAndroid className='icons'/>
+            <a href="tel:+919876543210" className='icons'><icons.PhoneAndroid  className='icons'/></a>
 
             <div className='help-head-content'>
             <Typography className='heading' style={{letterSpacing:'3px'}}>Phone</Typography>
@@ -32,7 +32,7 @@ function Footer() {
             </div>
             
             <div className='sub-cat'>
-            <icons.ChatOutlined className='icons'/>
+            <a href="tel:+919894111975" className='icons'><icons.ChatOutlined className='icons'/></a>
             
             <div className='help-head-content'>
             <Typography className='heading' style={{letterSpacing:'3px'}}>Chat</Typography>
@@ -42,7 +42,7 @@ function Footer() {
             </div>
 
             <div className='sub-cat'>
-                <icons.EmailOutlined className='icons'/>
+            <a href="mailto:digital@nowdigitaleasy.com" className='icons'><icons.EmailOutlined className='icons'/></a>
             <div className='help-head-content'>
             <Typography className='heading' style={{letterSpacing:'3px'}}>Email</Typography>
             <Typography variant='head2'>Advanced Support</Typography>
@@ -74,13 +74,14 @@ function Footer() {
             </Grid>
 
             <Grid item md={7} sm={12} xs={12} className='all-footer'>
+                
             <div className='vertical-list'>
                 <Typography variant='h3'>Company</Typography>
               
                 <li><Typography onClick={() => window.location.href = '/about/'} variant='h4'>About</Typography></li>
                 <li><Typography onClick={() => window.location.href = 'https://nowdigitaleasy.com/blog/'} variant='h4'>Blog</Typography></li>
                 <li><Typography  onClick={() => window.location.href = '/privacy-policy/'} variant='h4'>Privacy Policy</Typography></li>
-                <li><Typography variant='h4'>Terms and Condition</Typography></li>        
+                <li><Typography  onClick={() => window.location.href = '/termsandconditions'} variant='h4' >Terms and Condition</Typography></li>        
             </div>
 
 
@@ -88,10 +89,10 @@ function Footer() {
             <div className='vertical-list'>
                 <Typography variant='h3'>Domain</Typography>
               
-                <li><Typography variant='h4'>Domain Registration</Typography></li>
-                <li><Typography variant='h4'>Domain Transfer</Typography></li>
-                <li><Typography variant='h4'>Domain Renewal</Typography></li>
-                <li><Typography variant='h4'>ICANN Registrant Educational Materials</Typography></li>
+                <li><Typography variant='h4' onClick={() => window.location.href='/domain'}>Domain Registration</Typography></li>
+                <li><Typography variant='h4' onClick={() => window.location.href='/domain'}>Domain Transfer</Typography></li>
+                <li><Typography variant='h4' onClick={() => window.location.href='/domain'}>Domain Renewal</Typography></li>
+                <li><Typography variant='h4' >ICANN Registrant Educational Materials</Typography></li>
             </div>
         
 
@@ -109,10 +110,10 @@ function Footer() {
             <div className='vertical-list'>
                 <Typography variant='h3'>Support</Typography>
               
-                <li><Typography variant='h4'>Open Tickets</Typography></li>
-                <li><Typography variant='h4'>Network status</Typography></li>
-                <li><Typography variant='h4'>Knowledgebase</Typography></li>
-                <li><Typography variant='h4'>Downloads</Typography></li>
+                <li><Typography variant='h4' onClick={() => window.location.href = 'https://app.nowdigitaleasy.com/'}>Open Tickets</Typography></li>
+                <li><Typography variant='h4' onClick={() => window.location.href = 'https://app.nowdigitaleasy.com/'}>Network status</Typography></li>
+                <li><Typography variant='h4' onClick={() => window.location.href = 'https://app.nowdigitaleasy.com/'}>Knowledgebase</Typography></li>
+                <li><Typography variant='h4' onClick={() => window.location.href = 'https://app.nowdigitaleasy.com/'}>Downloads</Typography></li>
             </div>
 
            

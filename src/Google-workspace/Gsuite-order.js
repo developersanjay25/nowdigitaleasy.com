@@ -2,7 +2,7 @@ import { Button, TextField, Typography } from '@mui/material'
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { GSuitedataa, gsuiteprice, g_emailCart, hostingdialogstepp, opendialogg } from '../atoms/hostingatoms';
-import './hosting-order.css'
+import './Gsuite-order.css'
 import axios from 'axios';
 
 function HostingOrder() {
@@ -12,18 +12,21 @@ function HostingOrder() {
   const [open, setopen] = useRecoilState(opendialogg);
   const [GName, setGName] = useState();
   const [GSuitedata, setGSuitedata] = useRecoilState(GSuitedataa);
+  
+  const [emailcounterr, setemailcounterr] = useState(false)
 
   useEffect(() => {
       const findingindex = (arr) => {  
             return arr.pid == open.pid;
           }
-          console.log(GSuitedata)
   
       let productarr = GSuitedata.product;
+      console.log(productarr[productarr.findIndex(findingindex)].pid)
+
       setGPrice(productarr[productarr.findIndex(findingindex)].pricing['INR']);
       setGName(productarr[productarr.findIndex(findingindex)].name);
 
-      setEmailCart(state => ({...state,name : productarr[productarr.findIndex(findingindex)].name}))
+      setEmailCart(state => ({...state,name : productarr[productarr.findIndex(findingindex)].name , pid : productarr[productarr.findIndex(findingindex)].pid}))
 },[])
 
 
@@ -32,10 +35,20 @@ function HostingOrder() {
       setEmailCart(state => ({...state ,price : price}));
     },[emailCart.mailcount,emailCart.duration,gprice])
 
-    
+    const emailcountvalidation = (e) => {
+      
+      if(e.target.value <= 0 || e.target.value > 300){
+          setemailcounterr(true);
+          setEmailCart(state => ({...state ,mailcount : e.target.value}));
+      }
+      else{
+        setemailcounterr(false);
+        setEmailCart(state => ({...state ,mailcount : e.target.value}));
+      }
+    }
 
   return (<>
-    <div className='hosting-order'>
+    <div className='gsuite-order'>
     
     <div className='vertical-list'>
         <Typography variant='h3'><b>PlanName</b></Typography>
@@ -47,7 +60,8 @@ function HostingOrder() {
     <div className='vertical-list'>
         <Typography variant='h3'><b>No of Accounts</b></Typography>
         <br />
-        <TextField  size='small' type="number" value={emailCart.mailcount} onChange={(e) => setEmailCart(state => ({...state ,mailcount : e.target.value}))}/>
+        <TextField  InputProps={{ inputProps: { min: 1, max: 300 } }} error={emailcounterr}
+     size='small' type="number" value={emailCart.mailcount} onChange={emailcountvalidation}/>
     </div>
 
     <div className='vertical-list'>
@@ -75,7 +89,7 @@ function HostingOrder() {
 
     </div>
     <div style={{display:'flex',justifyContent:'center'}}>
-              <Button  style={{textAlign:'center'}} variant='contained' onClick={() => setStepperStep(1)}>Buy now</Button>
+            <Button  style={{textAlign:'center'}} variant='contained' onClick={() => {if(!emailcounterr){setStepperStep(1)}}}>Buy now</Button>
     </div>
     </>
   )

@@ -1,4 +1,4 @@
-import { Button, Divider, Grid, Icon, IconButton, Typography } from '@mui/material'
+import { Button, Divider, Grid, Icon, IconButton, Paper, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import './cart_step2.css'
 import domainimg from '../images/domain-product.webp';
@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil';
 import Cart2 from './Cart-2';
 import Footer from '../headerfooter/Footer';
 import Header from '../headerfooter/Header';
+import HostingAdviser from '../hosting/HostingAdviser';
 
 function Cart_step2() {
     const head={
@@ -28,7 +29,6 @@ function Cart_step2() {
     const [pricing,setPricingdata] = useRecoilState(pricingg);
     const [years,setYears] = useRecoilState(yearss);
 
-    console.log('years',years);
     
      // ==============================================Drop down for how much years==================================================
      const changedropdown = (e,index) => {
@@ -36,10 +36,19 @@ function Cart_step2() {
           ind === index 
           ? e.target.value
           : item 
-  ))
+    ))
     }
 
-
+    // ===================================================Check hosting added to cart or not==========================================
+    function checkhostingavailable(){
+      var result = false;
+      cart.map((item) =>{
+        if(item.type == 'hosting'){
+          result = true;
+        }
+      })
+      return result;
+    }
     
     function applypromocode(domain,price){
         let reducedcost;
@@ -100,6 +109,39 @@ function Cart_step2() {
 </div>
         }
 
+
+        // ====================================================Hosting card======================================================
+        if(arr.type == 'hosting'){
+          return <div  className='card-container'>
+            <Typography variant='h2' style={{textAlign:'left'}}>Hosting</Typography>
+
+            <div className='card-container-flex'>
+
+      <div className='vertical-list' style={{textAlign:'left'}}>
+      <Typography variant='h3' style={head}>Hosting ({arr.name})</Typography>
+      <Typography  variant='h4' style={{marginBottom:'10px'}}>{arr.name} ( {arr.domainforgwork} )</Typography>
+      <Typography  variant='h4'>Details: {arr.mailcount} year</Typography>
+      </div>    
+
+
+    <div className='vertical-list'>
+            <Typography  variant='h3' onChange={changedropdown} value={years[ind]} style={head} >Duration</Typography>
+            <Typography  variant='h4' style={{marginBottom:'10px'}}>{arr.duration}</Typography>
+    </div>    
+
+<div className='vertical-list'>
+<Typography  variant='h3' style={head} >Price</Typography>
+<Typography  variant='h3'  >₹ {arr.price}</Typography>
+</div>    
+
+  <IconButton className='remove-btn' onClick={() => deleteitems(ind)}><icons.DeleteOutline /></IconButton>
+</div>
+
+</div>
+      }
+
+
+
         // ======================================================Domain Card=======================================================
         else{
         return <div  className='card-container'>    
@@ -158,7 +200,10 @@ function Cart_step2() {
         }
       }  
         ))}
-        
+      
+      {/* =============================================showing hosting advisor when hosting not available=========================== */}
+      {checkhostingavailable() ? <></> : <HostingAdviser /> }  
+
         </Grid>  
         
         {/* ====================================Cart=============================== */}

@@ -1,0 +1,26 @@
+.hosting-adisor{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f2effa;
+    border: 1px solid #dee2e6;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-flow: row-wrap;
+}
+
+.save-text-hosting{
+    background-color: #000e9c;
+    color: white;
+    padding: 10px;
+}
+.hosting-support{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    padding: 20px;
+}
+.text-support{
+    margin-bottom: 15px;
+}

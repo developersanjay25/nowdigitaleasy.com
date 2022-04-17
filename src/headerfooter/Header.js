@@ -9,10 +9,6 @@ function Header() {
   const [openmenu,setOpenmenu] = React.useState(false);
 
 
-  useEffect(() => {
-    ReactGA.initialize('GTM-P34HK3J');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  },[]);
 
   return (
       <div style={{height : '70px'}}>
@@ -61,7 +57,7 @@ function Menuitems() {
     <li><Button color='primary' onClick={() => {window.location.href = '/domain'}} style={{fontWeight:'bold'}}>DOMAIN</Button></li>
     <li><Button color='primary' onClick={() => {window.location.href = '/hosting'}} style={{fontWeight:'bold'}}>HOSTING</Button></li>
     <li><Button color='primary' onClick={() => {window.location.href = '/google-workspace'}} style={{fontWeight:'bold'}}>GOOGLE WORKSPACE</Button></li>
-    <li><Button color='primary' onMouseOver={handleClick} style={{fontWeight:'bold'}}>APPS</Button>
+    <li><Button color='primary' onClick={handleClick} style={{fontWeight:'bold'}}>APPS</Button>
   <Menu
     id="basic-menu"
     anchorEl={anchorEl}

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { cartt, invoiceidd, preloaderr, snackbarr, stepperstepp, yearss } from '../atoms/orderpage';
 import { Satellite } from '@mui/icons-material';
+import { LoadingButton } from '@mui/lab';
 
 function Login() {
     const [data,setData] = useState({
@@ -115,10 +116,15 @@ useEffect(() => {
 
         cart.map((item,index) => {
             if(item.type){
-                domain.push(item.domain);
+
+        //======================================item.mailcount = quantity of mail==========================================
+        for(let i=0; i<item.mailcount; i++){    
+                domain.push(item.domainforgwork);
                 domaintype.push('');
                 regperiod.push(item.duration);       
-                pid.push(1) 
+                pid.push(item.pid) 
+            }
+            
             }
         else{
             domain.push(item.domain);
@@ -128,7 +134,7 @@ useEffect(() => {
         }
         })
 
-
+        console.log(domain)
         const url = `https://www.nowdigitaleasy.com/includes/api.php`
         
         axios.defaults.params =  {
@@ -153,7 +159,6 @@ useEffect(() => {
                 if(data.data.result == "success"){
                     console.log('success');
                     setSetinvoiceid(data.data.invoiceid);
-                    // setStepperStep(state => state+1);
                     window.location.href = '/payment'
                     setPreloader(false);
                 }
@@ -186,7 +191,7 @@ useEffect(() => {
         <br />
         <TextField  fullWidth error={data.password.err} helperText={data.password.errtext} onChange={e => setData({...data , password : ({ data  : e.target.value})})}  style={{backgroundColor:'white'}} label='pasword' type='password'/>
         <br />
-        <Button onClick={login} variant='contained'>Login</Button>
+        <LoadingButton loading={preloader} onClick={login} variant='contained'>Login</LoadingButton>
     </div>
   )
 }

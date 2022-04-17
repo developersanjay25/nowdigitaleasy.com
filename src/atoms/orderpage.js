@@ -82,7 +82,7 @@ const snackbarr = atom({
 const exactdomainn = atom({
   key : 'exactdomainn',
   default : [],
-  effects_UNSTABLE: [persistAtom],
+  // effects_UNSTABLE: [persistAtom],
 })
 
 export {cartt,cartticon,alldomains,yearss,addedtocartt , stepperstepp , totalamountt , invoiceidd , preloaderr , pricingg ,snackbarr , exactdomainn}

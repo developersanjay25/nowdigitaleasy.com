@@ -47,7 +47,7 @@
     .g-getting-start{
     border-radius: 40px !important;
     box-shadow: none !important;
-    width: 50%;
+    /* width: 50%; */
     height: 50px;
     font-weight: 700 !important;
     }

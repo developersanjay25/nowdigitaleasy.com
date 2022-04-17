@@ -2,7 +2,7 @@ import { Button, Divider, Typography } from "@mui/material";
 import { useRecoilState } from "recoil";
 import arr from './orderpage1'
 import * as icons from '@mui/icons-material'
-import {cartt,carticon, cartticon, alldomains, pricingg} from '../atoms/orderpage'
+import {cartt,carticon, cartticon, alldomains, pricingg, exactdomainn} from '../atoms/orderpage'
 
 const Card = (props) => {
     const [cart,setCart] = useRecoilState(cartt);
@@ -13,18 +13,30 @@ const Card = (props) => {
     const {alldomain} = props;
     
    
-    const addtocartstyle = {marginLeft:'10px',borderRadius:'40px',boxShadow:'none',padding:'10px 30px'};
+    const addtocartstyle = {marginLeft:'10px',borderRadius:'40px',boxShadow:'none',padding:'10px 30px' ,width: '170px'};
     
     function addtocart(e){
     if(alldomain[e].available){
-        const search = cart.find(item => item.domain == alldomain[e].domain)
-        console.log('search',search);
-        console.log('adding')
+        if(!alreadydomainadded(e)){
+          console.log(alldomain[e]);
+          console.log(pricing[alldomain[e].domain.split('.')[1]].register[1])
+          setCart(state => [ ...state , alldomain[e]]);
+        }
+        }
+  }
 
-        if(!search){
-          setCart(state => [ ...state , alldomain[e] ]);
+
+// function checks if domain already added to cart
+  function alreadydomainadded(index){
+    let results = false;
+    cart.map((item) => {
+      if(!item.type){
+        if(alldomain[index].domain == item.domain){
+            results = true;
         }
-        }
+      }
+    })
+    return results;
   }
 
   
@@ -47,7 +59,7 @@ const Card = (props) => {
               
               </div>
 
-              <Button  variant='contained' onClick={() => addtocart(ind)}  color='primary' style={addtocartstyle}>Add to cart</Button>
+              <Button  variant='contained' onClick={() => addtocart(ind)}  color='primary' style={addtocartstyle}>{alreadydomainadded(ind) ? 'Added to cart':'Add to cart'}</Button>
               <Divider />
               </div>
       </div>)
