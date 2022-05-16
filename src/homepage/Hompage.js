@@ -1,12 +1,11 @@
-import { Divider, Grid, Grow, Typography } from '@mui/material'
+import { Divider, Grid, Grow, Stack, Typography } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
 import './homepage.css'
-import Moredetails from './Moredetails'
 import {addedtocartt, alldomains, cartt, exactdomainn, preloaderr, pricingg, yearss} from '../atoms/orderpage'
 import { useRecoilState } from 'recoil'
 import axios from 'axios'
-import Card from '../order/cartfordomains'
 import Orderdomain from '../order/orderpage1'
+import Header from '../headerfooter/Header'
 
 function Hompage() {
   const[cart,setCart] = useRecoilState(cartt);
@@ -101,63 +100,61 @@ function Hompage() {
 
   return (
       <div>
+      <Header />
 
     <div className='search-container'>
-      <Typography variant='h1'>Bring your Business online with a .com</Typography>
-      <Typography variant='h2'>As low as ₹ 499.00* /1st year.</Typography>
+      <Typography variant='h1' color='secondary'>FIND DOMAIN NAME TO FIT YOUR BRAND</Typography>
+      <Typography variant='h2'>SEARCH AND REGISTER DOMAIN FROM <span color='secondary'>₹ 399</span></Typography>
       <br />
       
-      <Grid container 
-        alignItems="center"
-        justifyContent="center">
+      <Grid container
+         alignItems="center"
+         justifyContent="center">
   
-        <Grid item md={7}  sm={8} xs={8}>
+        <Grid item md={7} sm={8} xs={8}>
           <input type='text' onChange={(e) => {setDomaininput(e.target.value);}} onKeyDown={handleKeyDown} className='search-box' placeholder='Search your domain here'/>
         </Grid>
       <Grid item md={1} sm={1} xl={1}>
-      <input type='button'  onClick={search} value='search' className='search-btn'/>
+      <input type='button'  onClick={search} value='Search' className='search-btn'/>
       </Grid>
+
       </Grid>
       
-      <div className='below-search'>
+        <Stack direction='row' spacing={2} 
+        flexWrap='wrap'
+        divider={<Divider orientation='vertical' style={{backgroundColor:'white'}} flexItem/>}
+        margin={2}
+        justifyContent='center'
+        >
 
-      <div className='below-search-content'>
-      <Typography variant='h3'>.in</Typography>
-      <Typography variant='h3'>&#x20B9; 499</Typography>
-      </div>
-      
-
-      <div className='below-search-content'>
-      <Typography variant='h3'>.com</Typography>
-      <Typography variant='h3'>&#x20B9; 679</Typography>
-      </div>
-
-  
-      <div className='below-search-content'>    
-      <Typography variant='h3'>.online</Typography>
-      <Typography variant='h3'>&#x20B9; 75</Typography>
-      </div>
-
-      
-      <div className='below-search-content'>
-      <Typography variant='h3'>.live</Typography>
-      <Typography variant='h3'>&#x20B9; 272.00</Typography>
-      </div>
+          <Stack>
+            <Typography variant='body'>.in</Typography>
+            <Typography variant='body'>₹499.00</Typography>
+          </Stack>
 
 
-      <div className='below-search-content'>
-      <Typography variant='h3'>.store</Typography>
-      <Typography variant='h3'>&#x20B9; 75</Typography>
-      </div>
+          <Stack>
+            <Typography variant='body'>.co.in</Typography>
+            <Typography variant='body'>₹399.00</Typography>
+          </Stack>
 
-      <div>
-      <Typography variant='h3'>.info</Typography>
-      <Typography variant='h3'>&#x20B9; 75</Typography>
-      </div>
-      
-      </div>
-    
-    <br/>
+
+          <Stack>
+            <Typography variant='body'>.com</Typography>
+            <Typography variant='body'>₹749.00</Typography>
+          </Stack>
+
+
+          <Stack>
+            <Typography variant='body'>.net</Typography>
+            <Typography variant='body'>₹799.00</Typography>
+          </Stack>
+
+          <Stack>
+            <Typography variant='body'>.org</Typography>
+            <Typography variant='body'>₹999.00</Typography>
+          </Stack>
+        </Stack>
 
     <Typography variant='p'>As low Prices shown are for first year only. Limit 1 per customer. Other discounts available, see cart for final pricing.</Typography>
     </div>
@@ -167,7 +164,7 @@ function Hompage() {
        {searched ? <Orderdomain pricingdata={pricingdata} exactdomain = {exactdomain}/> : <></>}
        </div>
 
-    <Moredetails />
+    
  </div>
   )
 }

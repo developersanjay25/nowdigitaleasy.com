@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Grid, IconButton, Stack, Typography } from '@mui/material'
 import React, { useLayoutEffect, useState } from 'react'
 import Footer from '../headerfooter/Footer'
 import Header from '../headerfooter/Header'
@@ -13,7 +13,7 @@ import ExistingDomain from './ExistingDomain'
 import TestimonialsHosting from './TestimonialsHosting'
 import Domainavailability from './Domainavailability'
 import axios from 'axios'
-
+import * as icons from '@mui/icons-material';
 
 const getstep = (step) => {
   switch(step){
@@ -35,7 +35,8 @@ function Googleworkspace() {
   const [GSuitedata, setGSuitedata] = useRecoilState(GSuitedataa);
 
     const handleClose = () => {
-      setOpen(state => ({open : false}));
+      setOpen(state => ({...state, open : false}));
+      setHostingstep(0)
       };
 
 
@@ -70,7 +71,16 @@ function Googleworkspace() {
         open={open.open}
         onClose={handleClose}
       >
-        <DialogTitle>Hosting</DialogTitle>
+        
+        <DialogTitle sx={{backgroundColor:'#1642c6',color:'white'}}>
+         <Stack direction='row' justifyContent='space-between' alignItems='center'> 
+            <Typography variant='h3' sx={{textTransform:'uppercase'}}>Hosting</Typography>
+            <IconButton style={{color:'white'}} onClick={handleClose}><icons.Close /></IconButton>
+         </Stack>
+          </DialogTitle>
+        
+        <Divider />
+
         <DialogContent>
           <DialogContentText style={{overflow:'hidden'}}>
               {getstep(hostingstep)}
@@ -82,40 +92,48 @@ function Googleworkspace() {
       <Grid container justifyContent='center'>
         
         {/* ==========================================================================Left headings=========================================== */}
-        <Grid item md={4} sm={10} xs={10} >
+        <Grid item md={12} sm={10} xs={10} paddingLeft={4}>
         <div className='g-heading'>
-        <Typography variant='h1' color='primary' className='g-workspace-h1'>Google Workspace: Everything you need to get anything done</Typography>
+        <Typography variant='h1' color='primary' className='g-workspace-h1'>EXPERIANCE POWERFUL WEB HOSTING</Typography>
         <br />
-        <Typography variant='h3' color="primary" className='g-workspace-h1'>It’s the best way to create, communicate, and collaborate. Familiar tools; fewer distractions; more time to make things happen.</Typography>
+        <Typography variant='h2' color="primary" className='g-workspace-h1' gutterBottom>Shared | VPS | Dedicated | Reseller Hosting</Typography>
+        <Typography variant='h3' color="primary" className='g-workspace-h1'>G-suite Business tools to help you communicate , colobarate and increase overall efficiency at rates you’ve never experienced before.</Typography>
         <br />
-        <Button variant='contained' className='g-getting-start'>start Now</Button>
+        <Stack direction='row' spacing={2}>
+        <Button variant='contained' color='primary'>View Products</Button>
+        <Button variant='contained' color='secondary' sx={{color:'white'}}>Chat Now</Button>
+        </Stack>
         </div>
         </Grid>
         
 
         {/* ==========================================================================Right headings=============================================================== */}
-        <Grid item md={6} sm={10} xs={10}>
+        {/* <Grid item md={6} sm={10} xs={10}>
           <img src={gimage} className='g-right-image'/>
-       </Grid>
+       </Grid> */}
        </Grid>
     </div>
 
    
-    <Grid container justifyContent='center' maxWidth={'1050px'} margin={'auto'}>
-    <Grid item md={4} sm={6} xs={12} >
+    <Grid container justifyContent='center' maxWidth={'100%'}>
+    <Grid item md={3} sm={6} xs={12} >
     <Offers data={GSuitedata.product[4]}/>
     </Grid>
 
     
-    <Grid item md={4} sm={6} xs={12}>
+    <Grid item md={3} sm={6} xs={12}>
     <Offers data={GSuitedata.product[5]}/>
     </Grid>
 
     
-    <Grid item md={4} sm={6} xs={12}>
+    <Grid item md={3} sm={6} xs={12}>
     <Offers data={GSuitedata.product[6]}/>
     </Grid>
 
+
+    <Grid item md={3} sm={6} xs={12}>
+    <Offers data={GSuitedata.product[6]}/>
+    </Grid>
     </Grid>
     
 

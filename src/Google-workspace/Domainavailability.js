@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@emotion/react';
-import {  Button, Grid, Slide, TextField, Typography } from '@mui/material';
+import {  Button, Grid, Slide, Stack, TextField, Typography } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react'
 import { useRecoilState } from 'recoil';
 import { addedtocartt, alldomains, cartt, exactdomainn, pricingg, yearss } from '../atoms/orderpage';
@@ -107,12 +107,16 @@ console.log(emailCart);
         <br/> 
         <br/> 
         <br/> 
-        <Grid item md={3}  sm={8} xs={8}>
-          <TextField type='text' fullWidth onChange={(e) => {setDomaininput(e.target.value);}} onKeyDown={handleKeyDown} placeholder='Search your domain here'/>
-    
+        <Grid item md={10}  sm={8} xs={8}>
+          {/* <TextField type='text' fullWidth onChange={(e) => {setDomaininput(e.target.value);}} onKeyDown={handleKeyDown} placeholder='Search your domain here'/> */}
+          <input className='domain-search' type='text' width={'100%'} onChange={(e) => {setDomaininput(e.target.value);}} onKeyDown={handleKeyDown} placeholder='Search your domain here'/>
         </Grid>
-      <Grid item md={1} sm={1} xl={1}>
-      <input type='button'  onClick={search} value='search' className='search-btn'/>
+      <Grid item md={1.5} sm={1} xl={1}>
+      {/* <input type='button'  onClick={search} value='search' className='search-btn-box'/> */}
+      <Button color='secondary' variant='contained' 
+      style={{color:'white',padding:'14px',borderRadius:'20px',width:'150px',marginLeft:'-30px'}}
+      disableElevation
+      >Search</Button>
       </Grid>
       </Grid>
         
@@ -120,10 +124,10 @@ console.log(emailCart);
       {exactdomain.length ?
       
 
-      <Grid container className='background' >
+      <Grid container className='background' spacing={7}>
 
 {/* =========================================================Left container ================================================ */}
-          <Grid item md={7} sm={11} xs={10}>
+          <Grid item md={8} sm={11} xs={10}>
               <div className='left-container'>
                   <Typography variant='h4' color='primary'>Results</Typography>
                 {(alldomain.length || exactdomain.length) ? <div>
@@ -135,10 +139,6 @@ console.log(emailCart);
                 </div> : <Typography>Loading...</Typography>}
               </div>
           </Grid>
-         
-         <Grid item md={1} sm={0} xs={0}>
-
-         </Grid>
 {/* =========================================================right container ================================================ */}
           
           <Grid item md={4} sm={12} xs={12}>
@@ -153,11 +153,13 @@ console.log(emailCart);
       </Grid>
       : <></>}
           
-          <div style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
+          <Stack alignItems='center' marginTop={1}>
+          <Typography variant='h2'>{cart.length ? cart[cart.length-1].domain : ''} Continue with this domain</Typography>
+          </Stack>
 
-          <Typography>{cart.length ? cart[cart.length-1].domain : ''} Continue with this domain</Typography>
+          <Stack alignItems='flex-end'>
           <Button variant='contained' onClick={addemailtocart}>Continue</Button>
-          </div>
+          </Stack>
 
     </div>
     </Slide>

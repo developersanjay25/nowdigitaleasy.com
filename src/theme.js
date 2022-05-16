@@ -7,12 +7,12 @@ let theme = createTheme({
       main: '#000E9C',
     },
     secondary: {
-      main: '#edf2ff',
+      main: '#05CC19',
     },
   },typography: {
-    fontFamily: ['Roboto Condensed', 'sans-serif'],
+    fontFamily: ['Roboto Condensed'],
     h1 : {
-        fontSize : '48px',
+        fontSize : '40px',
         // lineHeight : '72px',
         fontWeight : '700',
         fontFamily: ['Roboto Condensed'],

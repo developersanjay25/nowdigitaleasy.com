@@ -1,52 +1,55 @@
-import { Button, emphasize, Grid, Typography } from '@mui/material'
+import { Button, emphasize, Grid, Stack, Typography } from '@mui/material'
 import React from 'react'
 import webhosting from '../images/Man performs system maintenance of the device from a laptop.png'
-import mailimage from '../images/Woman with laptop sends mail around the world.png'
+import Moredetailsbox from './Moredetailsbox'
+import hosting from '../images/homepage/hosting.png'
+import trackeye from '../images/homepage/trackeye.png'
+import ndeconnect from '../images/homepage/ndeconnect.png'
+import personalmail from '../images/homepage/personalmail.png'
 
 function Moredetails() {
+  let data = [
+    {
+    image : hosting,
+    name : 'web hosting',
+    content : 'Shared Web Hosting is the perfect hosting solution for websites and businesses with limited technical expertise.'
+    },
+    {
+      image : personalmail,
+      name : 'proffessional email',
+      content : 'G-suite Business tools to help you communicate , colobarate and increase overall efficiency at rates you’ve never experienced before.'
+      },
+    {
+      image : trackeye,
+      name : 'TRACK EYE',
+      content : 'Trackeye is a Field Employee Monitoring software which keeps an eye on employers daily allotted tasks'
+    },
+    {
+      image : ndeconnect,
+      name : 'nde connect',
+      content : 'Experience our IT Managed Services incorparated with latest IT Resources.'
+    },
+  ]
+
+
   return (
     <div className='more-details'>
         
       <Typography variant='h1' > More tools to grow your Business.</Typography>
       <Typography variant='p' >We’re known for domains, but check out other essentials to take your business further online.</Typography>
     
-        <Grid container>
+      <br />
+      <Grid container spacing={1}>
         
-        <Grid item md={6} sm={12}>
-        <div className='web-hosting-box'>
-                <img src={webhosting} className='home-page-images'/>
-                <Typography variant='h2'>Web Hosting</Typography>
-                <br />
-                <Typography variant='p'>Whether you want hosting for one or 100 websites, we’ve got plans to keep everything running in peak form.</Typography>
-        <br />
-        <Typography variant='h3' >As low as</Typography>
-        <br />
-        <Typography variant='h2' >₹ 99.00 per user/mo</Typography>
-
-        <br />
-        <Button variant='outlined'>Explore plans</Button>
-        </div>
+        {data.map((item,index) => {
+        return <Grid key={'moretools'+index} item md={3} sm={4} xs={6}>
+        <Moredetailsbox image={item.image} planname={item.name} content={item.content}/>
         </Grid>
+        })}
 
-{/* ================================================================Email ===================================================== */}
-        <Grid item md={6} sm={12}>
-        <div className='web-hosting-box'>
-                <img src={mailimage} className='home-page-images'/>
-                <Typography variant='h2'>Proffessional Email</Typography>
-                <br/>
-                <Typography variant='p'>Show customers you’re a pro with an email address that matches your domain. Get Professional Email today.</Typography>
-        <br />
-        <Typography variant='h3' >As low as</Typography>
-        <br />
-        <Typography variant='h2' >₹ 29.00 per user/mo</Typography>
-
-        <br />
-        <Button variant='outlined'>Explore plans</Button>
-        </div>
-        </Grid>
-
-        </Grid>
-    </div>
+      </Grid>
+      <br />
+      </div>
   )
 }
 

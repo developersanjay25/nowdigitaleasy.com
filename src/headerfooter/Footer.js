@@ -14,7 +14,7 @@ function Footer() {
     <ThemeProvider theme={theme}>
     <div className='footer'>
         <div >
-            <Grid container alignItems='center' justifyContent='center' className='helptab'>
+            <Grid container alignItems='center' justifyContent='left' className='helptab'>
 
             <Grid item md={4} sm={12} xs={12}>
             <Typography variant='h2' className='help-head' style={{letterSpacing:'3px'}}>24/7 Customer Care</Typography>
@@ -59,11 +59,11 @@ function Footer() {
 
             <Grid container justifyContent='center'>
 
-            <Grid item md={4} sm={9} xs={9}>
+            <Grid item md={4} sm={9} xs={9} padding={2} paddingLeft={0}>
             <img src={logo} style={{height:'73px'}}/>
             <br /><Typography variant='p'>We are a web hosting company with a mission to help everyone who goes online succeed.</Typography>
-            <br /><Typography variant='p'>We accomplish this by continuously developing server technology, giving</Typography>
-            <br /><Typography variant='p'>expert assistance, and ensuring a flawless online website hosting experience.</Typography>
+            <Typography variant='p'>We accomplish this by continuously developing server technology, giving</Typography>
+            <Typography variant='p'>expert assistance, and ensuring a flawless online website hosting experience.</Typography>
            
             <div className='payment'>
                     <img src={visa} className='payment-icons'/>
@@ -73,10 +73,10 @@ function Footer() {
 
             </Grid>
 
-            <Grid item md={7} sm={12} xs={12} className='all-footer'>
+            <Grid item md={8} sm={12} xs={12} className='all-footer'>
                 
             <div className='vertical-list'>
-                <Typography variant='h3'>Company</Typography>
+                <Typography variant='h3' gutterBottom>Company</Typography>
               
                 <li><Typography onClick={() => window.location.href = '/about/'} variant='h4'>About</Typography></li>
                 <li><Typography onClick={() => window.location.href = 'https://nowdigitaleasy.com/blog/'} variant='h4'>Blog</Typography></li>
@@ -87,7 +87,7 @@ function Footer() {
 
 
             <div className='vertical-list'>
-                <Typography variant='h3'>Domain</Typography>
+                <Typography variant='h3' gutterBottom>Domain</Typography>
               
                 <li><Typography variant='h4' onClick={() => window.location.href='/domain'}>Domain Registration</Typography></li>
                 <li><Typography variant='h4' onClick={() => window.location.href='/domain'}>Domain Transfer</Typography></li>
@@ -97,7 +97,7 @@ function Footer() {
         
 
             <div className='vertical-list'>
-                <Typography variant='h3'>Products</Typography>
+                <Typography variant='h3' gutterBottom>Products</Typography>
               
                 <li><Typography onClick={() => window.location.href = '/hosting/'} variant='h4'>Hosting</Typography></li>
                 <li><Typography onClick={() => window.location.href = '/google-workspace'} variant='h4'>G suite</Typography></li>
@@ -108,8 +108,8 @@ function Footer() {
 
 
             <div className='vertical-list'>
-                <Typography variant='h3'>Support</Typography>
-              
+                <Typography variant='h3' gutterBottom>Support</Typography>
+
                 <li><Typography variant='h4' onClick={() => window.location.href = 'https://app.nowdigitaleasy.com/'}>Open Tickets</Typography></li>
                 <li><Typography variant='h4' onClick={() => window.location.href = 'https://app.nowdigitaleasy.com/'}>Network status</Typography></li>
                 <li><Typography variant='h4' onClick={() => window.location.href = 'https://app.nowdigitaleasy.com/'}>Knowledgebase</Typography></li>

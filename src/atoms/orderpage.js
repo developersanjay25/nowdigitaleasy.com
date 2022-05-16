@@ -56,8 +56,7 @@ const invoiceidd = atom({
 
 const preloaderr = atom({
   key : 'preloaderr',
-  default : 0,
-  effects_UNSTABLE: [persistAtom],
+  default : false
 })
 
 

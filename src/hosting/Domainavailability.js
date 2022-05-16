@@ -139,8 +139,8 @@ console.log(emailCart);
          <Grid item md={1} sm={0} xs={0}>
 
          </Grid>
+
 {/* =========================================================right container ================================================ */}
-          
           <Grid item md={4} sm={12} xs={12}>
               <div className='right-container'>
               <Typography variant='subtitle1' style={{fontWeight:'bold'}}>Your Selection </Typography>

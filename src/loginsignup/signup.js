@@ -1,8 +1,9 @@
-import { Alert, Button, Checkbox, Snackbar, TextField, Typography } from '@mui/material'
+import { Alert, Button, Checkbox, FormControlLabel, Snackbar, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { cartt, invoiceidd, preloaderr, stepperstepp, yearss } from '../atoms/orderpage';
 import { useRecoilState } from 'recoil';
+import { LoadingButton } from '@mui/lab';
 
 function Signup() {
     const [data , setData] =useState({
@@ -21,6 +22,7 @@ function Signup() {
             errtext : '',
             data : ''
         },
+       
         password : {
             err : false,
             errtext : '',
@@ -46,8 +48,13 @@ function Signup() {
             errtext : '',
             data : ''
         },
-        country : 'in',
-        phonenumber : {
+        company_name : {
+          err : false,
+          errtext : '',
+          data : ''
+      },
+      country : 'in',
+      phonenumber : {
             err : false,
             errtext : '',
             data : ''
@@ -106,7 +113,12 @@ function Signup() {
       else{
         setData(state => ({...state , password : ({...state.password , err : false , errtext : ''})}));
       }
-
+      if(!data.company_name.data){
+        setData(state => ({...state , company_name : ({...state.company_name , err : true , errtext : 'Enter password'})}));
+      }
+      else{
+        setData(state => ({...state , company_name : ({...state.company_name , err : false , errtext : ''})}));
+      }
       if(!data.address.data){
         setData(state => ({...state , address : ({...state.address , err : true , errtext : 'Enter Address'})}));
       }
@@ -142,42 +154,42 @@ function Signup() {
       }
 
 
-
-        axios.defaults.params =  {
-            'action' : 'AddClient',
-            'username' : 'drtRhPBjT6DRgioybheFOpPgfFKLPxOt',
-            'password' : 'phmxeN4UIiytvM36FsMUrQlQvgk4Jjce',
-            'accesskey' : 'ONEiaaxin_123',
-            'firstname' : data.firstName.data,
-            'lastname' : data.lastName.data,
-            'email' : data.email.data,
-            'address1' : data.address.data,
-            'city' : data.city.data,
-            'state' : data.state.data,
-            'postcode' : data.postcode.data,
-            'country' : 'IN',
-            'phonenumber' : data.phonenumber.data,
-            'password2' : data.password.data,
-            'responsetype' : 'json',
-          }
-        const url = `https://www.nowdigitaleasy.com/includes/api.php`
+      app_nowdigitaleasysignup();
+        // axios.defaults.params =  {
+        //     'action' : 'AddClient',
+        //     'username' : 'drtRhPBjT6DRgioybheFOpPgfFKLPxOt',
+        //     'password' : 'phmxeN4UIiytvM36FsMUrQlQvgk4Jjce',
+        //     'accesskey' : 'ONEiaaxin_123',
+        //     'firstname' : data.firstName.data,
+        //     'lastname' : data.lastName.data,
+        //     'email' : data.email.data,
+        //     'address1' : data.address.data,
+        //     'city' : data.city.data,
+        //     'state' : data.state.data,
+        //     'postcode' : data.postcode.data,
+        //     'country' : 'IN',
+        //     'phonenumber' : data.phonenumber.data,
+        //     'password2' : data.password.data,
+        //     'responsetype' : 'json',
+        //   }
+        // const url = `https://www.nowdigitaleasy.com/includes/api.php`
         
-        axios.post(url).then((data) => {
-                console.log(data);
+        // axios.post(url).then((data) => {
+        //         console.log(data);
 
-                if(data.data.result == 'success'){
-                    setClientid(data.data.clientid)
-                }
-                else if(data.data.result == 'error'){
-                  setSnackbaropen({open : true , message : data.data.message, seviority : 'error'});
-                  setPreloader(false)
-              }
+        //         if(data.data.result == 'success'){
+        //             app_nowdigitaleasysignup();
+        //             setClientid(data.data.clientid)
+        //         }
+        //         else if(data.data.result == 'error'){
+        //           setSnackbaropen({open : true , message : data.data.message, seviority : 'error'});
+        //           setPreloader(false)
+        //       }
 
-        }).catch((err) => {
-            console.log(err.response);
-            setPreloader(false);
-
-        });
+        // }).catch((err) => {
+        //     console.log(err.response);
+        //     setPreloader(false);
+        // });
     }
 
 
@@ -216,7 +228,9 @@ function Signup() {
               if(data.data.result == "success"){
                   console.log('success');
                   setSetinvoiceid(data.data.invoiceid);
+                  setCart('');
                   setStepperStep(state => state+1);
+                  window.location.href = '/payment'
                   setPreloader(false);
               }
           }).catch((err) => {
@@ -226,7 +240,47 @@ function Signup() {
           })     
       }
 
+
   },[clientid])
+
+
+// ========================================================= APP.NOWDIGITALEASY_SIGNUP ===========================================================
+function app_nowdigitaleasysignup(){
+  const url = "https://server.nowdigitaleasy.com/signup.php"
+
+  axios.defaults.params =  {
+    'action' : 'signup',
+    'first_name' : data.firstName.data,
+    'last_name' : data.lastName.data,
+    'email' : data.email.data,
+    'address' : data.address.data,
+    'city' : data.city.data,
+    'state' : data.state.data,
+    'pincode' : data.postcode.data,
+    'country' : 'india',
+    'phone_number' : data.phonenumber.data,
+    'comapany_name' : data.company_name.data,
+    'password' : data.password.data,
+    // 'responsetype' : 'json',
+  }
+
+axios.post(url).then((data) => {
+        console.log('data',data);
+        setPreloader(false);
+
+        if(data.data.result == 'success'){
+            // setClientid(data.data.clientid)
+        }
+        else if(data.data.result == 'error'){
+          setSnackbaropen({open : true , message : data.data.message, seviority : 'error'});
+          setPreloader(false)
+      }
+
+}).catch((err) => {
+    console.log(err.response);
+    setPreloader(false);
+});
+}
 
    // Snackbar
    const handleClose = (event) => {
@@ -243,27 +297,30 @@ function Signup() {
         </Snackbar>
   
         <br />
-        <TextField fullWidth error={data.firstName.err} helperText={data.firstName.errtext} onChange={e => setData(state => ({ ...state ,firstName : ({...state.firstName , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='First name'/>
+        <TextField fullWidth error={data.firstName.err} helperText={data.firstName.errtext} onChange={e => setData(state => ({ ...state ,firstName : ({...state.firstName , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='First name' required/>
         <br />
-        <TextField fullWidth error={data.lastName.err} helperText={data.lastName.errtext} onChange={e => setData(state =>({ ...state ,lastName : ({...state.lastName , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Last name'/>
+        <TextField fullWidth error={data.lastName.err} helperText={data.lastName.errtext} onChange={e => setData(state =>({ ...state ,lastName : ({...state.lastName , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Last name' required/>
         <br />
-        <TextField fullWidth error={data.email.err} helperText={data.email.errtext} onChange={e => setData(state => ({ ...state ,email : ({...state.email , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Email'/>
+        <TextField fullWidth error={data.email.err} helperText={data.email.errtext} onChange={e => setData(state => ({ ...state ,email : ({...state.email , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Email' required/>
         <br />
-        <TextField fullWidth error={data.phonenumber.err} helperText={data.phonenumber.errtext} onChange={e => setData(state => ({ ...state ,phonenumber : ({...state.phonenumber , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Phone number'/>
+        <TextField fullWidth error={data.phonenumber.err} helperText={data.phonenumber.errtext} onChange={e => setData(state => ({ ...state ,phonenumber : ({...state.phonenumber , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Phone number' required/>
         <br />
-        <TextField fullWidth error={data.password.err} helperText={data.password.errtext} onChange={e => setData(state => ({ ...state ,password : ({...state.password , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Password'/>
+        <TextField fullWidth error={data.password.err} helperText={data.password.errtext} onChange={e => setData(state => ({ ...state ,password : ({...state.password , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Company Name' required/>
         <br />
-        <TextField fullWidth error={data.address.err} helperText={data.address.errtext} onChange={e => setData(state => ({ ...state ,address : ({...state.address , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Address'/>
+        <TextField fullWidth error={data.company_name.err} helperText={data.company_name.errtext} onChange={e => setData(state => ({ ...state ,company_name : ({...state.company_name , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Password' required/>
         <br />
-        <TextField fullWidth error={data.city.err} helperText={data.city.errtext} onChange={e => setData(state => ({ ...state ,city : ({...state.city , data : e.target.value})}))} style={{backgroundColor:'white'}} label='City'/>
+        <TextField fullWidth error={data.address.err} helperText={data.address.errtext} onChange={e => setData(state => ({ ...state ,address : ({...state.address , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Address' required/>
         <br />
-        <TextField fullWidth error={data.state.err} helperText={data.state.errtext} onChange={e => setData(state => ({ ...state ,state : ({...state.state , data : e.target.value})}))} style={{backgroundColor:'white'}} label='State'/>
+        <TextField fullWidth error={data.city.err} helperText={data.city.errtext} onChange={e => setData(state => ({ ...state ,city : ({...state.city , data : e.target.value})}))} style={{backgroundColor:'white'}} label='City' required/>
         <br />
-        <TextField fullWidth error={data.postcode.err} helperText={data.postcode.data} onChange={e => setData(state =>({...state , postcode : ({...state.state , postcode : e.target.value})}) )} style={{backgroundColor:'white'}} label='Post code'/>
+        <TextField fullWidth error={data.state.err} helperText={data.state.errtext} onChange={e => setData(state => ({ ...state ,state : ({...state.state , data : e.target.value})}))} style={{backgroundColor:'white'}} label='State' required/>
         <br />
-        <Button onClick={signup} variant='contained'>Create an account</Button>
+        <TextField fullWidth error={data.postcode.err} helperText={data.postcode.errtext} onChange={e => setData(state =>({...state , postcode : ({...state.state , data : e.target.value})}) )} style={{backgroundColor:'white'}} label='Post code' required/>
         <br />
-        <Typography><Checkbox /> I confirm that I am over 18 and accept the Terms and conditions</Typography>
+        <FormControlLabel error label='I confirm that I am over 18 and accept the Terms and conditions' control={<Checkbox />}/>
+        <br />
+        <LoadingButton onClick={signup} variant='contained' loading={preloader}>Create an account</LoadingButton>
+        <br />
     </div>
   )
 }

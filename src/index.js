@@ -15,6 +15,7 @@ import Proceedtopay from './order/Proceedtopay';
 import About from './details/About';
 import PrivacyPolicy from './details/PrivacyPolicy';
 import TermsandConditions from './details/TermsandConditions';
+import Marketting from './marketting/Marketting';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -33,6 +34,7 @@ ReactDOM.render(
       <Route path='/about' element={<About />} />
       <Route path='/privacy-policy' element={<PrivacyPolicy />} />
       <Route path='/termsandconditions' element={<TermsandConditions />} />
+      <Route path='/marketting' element={<Marketting />} />
       </Routes>
       </ThemeProvider>
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import { Button, Paper } from '@mui/material';
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil';
-import { invoiceidd, preloaderr, totalamountt } from '../atoms/orderpage';
+import { cartt, invoiceidd, preloaderr, totalamountt } from '../atoms/orderpage';
 import axios from 'axios'
 import paymentproceed from '../images/Double Tick.png'
 import Typography from '@mui/material/Typography';
@@ -13,8 +13,9 @@ import Footer from '../headerfooter/Footer'
 function Proceedtopay() {
 
     const [totalamount,setTotalamount] = useRecoilState(totalamountt);
-    const [invoiceid , setSetinvoiceid] = useRecoilState(invoiceidd);
-    const [perloader , setPreloader] = useRecoilState(preloaderr);
+    const [invoiceid, setSetinvoiceid] = useRecoilState(invoiceidd);
+    const [perloader, setPreloader] = useRecoilState(preloaderr);
+    const [cart, setCart] = useRecoilState(cartt);
     const [paymentprosssed , setpaymentprossed] = useState(false);
       
     console.log(Number(totalamount) * 100)
@@ -88,7 +89,8 @@ function loadScript(src) {
           axios.get(url).then((data) => {
                   console.log(data);
                   setPreloader(false);
-                  setpaymentprossed(true);      
+                  setpaymentprossed(true);
+                  setCart([]);
           } ).catch((err) => {
               console.log(err);
                setPreloader(false)

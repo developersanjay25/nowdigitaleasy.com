@@ -1,4 +1,5 @@
-import { Button, Slide, TextField } from '@mui/material'
+import { Button, Divider, InputAdornment, Slide, Stack, TextField } from '@mui/material'
+import { Box } from '@mui/system';
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { g_emailCart, hostingdialogstepp } from '../atoms/hostingatoms';
@@ -32,11 +33,30 @@ function ExistingDomain() {
 
     return (
     <Slide in={(stepper == 2)} direction="left">
-    <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-    <div>www.<TextField variant='standard' error={error} onChange={(e) => setEmailCart(state => ({...state, domainforgwork : e.target.value}))}/></div>
+    {/* <Stack alignItems='center' 
+    divider={<Divider flexItem />}>
+     */}
+     <Box>
+    <TextField variant='outlined' fullWidth error={error} 
+    // label='Enter your Domain'
+     InputProps={{
+        startAdornment: (
+            <InputAdornment position="start">
+          WWW.
+        </InputAdornment>
+    )
+    }}
+    onChange={(e) => setEmailCart(state => ({...state, domainforgwork : e.target.value}))}/>
     <br />
-    <Button variant='outlined' onClick={addemailtocart}>Continue</Button>
-    </div>
+    <br />
+
+    <Divider flexItem style={{position:'absolute',width:'100%',left:0}}/>
+
+    <Stack justifyContent='flex-end' alignItems='flex-end' paddingTop={2}>
+    <Button variant='contained' onClick={addemailtocart}>Continue</Button>
+    </Stack>
+    {/* </Stack> */}
+    </Box>
     </Slide>
     )
 }

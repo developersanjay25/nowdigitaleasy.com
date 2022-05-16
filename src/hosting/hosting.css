@@ -1,14 +1,5 @@
-.hosting-container-1{
-    background:linear-gradient(45deg, #FFE8B6, #8DFDFF);
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .offers-card{
-    padding: 20px 40px;
+    /* padding: 20px 40px; */
     margin: 10px;
     min-width: fit-content;
     text-align: center;
@@ -21,7 +12,7 @@
 
 .offers-content{
     text-align: left;
-    padding: 20px 0;
+    padding: 15px 0;
     line-height: 10px;
 }
 .offers-content h3{

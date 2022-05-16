@@ -2,7 +2,8 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        /* justify-content: space-around; */
+        justify-content: space-between;
+        align-items: center;
 }
 .hosting-order .vertical-list{
     width: fit-content !important;
@@ -12,4 +13,8 @@
     width: 100px;
     padding: 10px;
     border-radius: 5px;
+}
+.gsuit .hosting-container-1 {
+    background-color: white;
+    background-image: none;
 }

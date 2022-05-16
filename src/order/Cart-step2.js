@@ -1,4 +1,4 @@
-import { Button, Divider, Grid, Icon, IconButton, Paper, Typography } from '@mui/material'
+import { Button, Divider, Grid, Icon, IconButton, Paper, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import './cart_step2.css'
 import domainimg from '../images/domain-product.webp';
@@ -20,8 +20,9 @@ function Cart_step2() {
     const offercard = {
             backgroundColor:'#000e9c',
             color:'white',
-            padding:'5px 10px',
-            margin :'10px'
+            padding:'5px 0',
+            margin :'10px 0',
+            width:'100%'
     }
 
 
@@ -71,14 +72,14 @@ function Cart_step2() {
     <div  className='card-step2'>
       {/* ======================================Header=================================== */}
 
-        <Typography variant='h2'>You're almost there! Complete your order</Typography>
+        <Typography variant='h2' marginLeft={1.5}>You're almost there! Complete your order</Typography>
         <br />
         <Grid container spacing={2} justifyContent='center' className='card-step2-card'>
 
 
-        <Grid item md={7} sm={12} xs={12}>
+        <Grid item md={8} sm={12} xs={12} padding={0} spacing={2}>
 
-        {(cart.map((arr,ind) => {    
+        {cart ? (cart.map((arr,ind) => {    
           // =====================================================google workspace card===========================================
         if(arr.type == 'g-workspace'){
             return <div  className='card-container'>
@@ -86,11 +87,11 @@ function Cart_step2() {
 
               <div className='card-container-flex'>
 
-        <div className='vertical-list' style={{textAlign:'left'}}>
-        <Typography variant='h3' style={head}>Google Workspace ({arr.name})</Typography>
+        <Stack alignItems='flex-start' justifyContent='center' textAlign='left'>
+        {/* <Typography variant='h3' style={head}>Google Workspace ({arr.name})</Typography> */}
         <Typography  variant='h4' style={{marginBottom:'10px'}}>{arr.name} ( {arr.domainforgwork} )</Typography>
         <Typography  variant='h4'>Details: {arr.mailcount} Accounts</Typography>
-        </div>    
+        </Stack>    
 
 
       <div className='vertical-list'>
@@ -117,11 +118,11 @@ function Cart_step2() {
 
             <div className='card-container-flex'>
 
-      <div className='vertical-list' style={{textAlign:'left'}}>
-      <Typography variant='h3' style={head}>Hosting ({arr.name})</Typography>
+      <Stack justifyContent="center" alignItems="flex-start">
+      {/* <Typography variant='h3' style={head}>Hosting ({arr.name})</Typography> */}
       <Typography  variant='h4' style={{marginBottom:'10px'}}>{arr.name} ( {arr.domainforgwork} )</Typography>
       <Typography  variant='h4'>Details: {arr.mailcount} year</Typography>
-      </div>    
+      </Stack>    
 
 
     <div className='vertical-list'>
@@ -145,8 +146,11 @@ function Cart_step2() {
         // ======================================================Domain Card=======================================================
         else{
         return <div  className='card-container'>    
-        <br />
+        
+        <Stack direction='row' justifyContent='space-between' alignItems='center'>
         <Typography variant='h2' style={{textAlign:'left'}}>Domain Registration</Typography>
+        <IconButton onClick={() => deleteitems(ind)}><icons.DeleteOutline /></IconButton>
+        </Stack>
 
         <div className='card-container-flex'>
 
@@ -157,19 +161,19 @@ function Cart_step2() {
         </div>
 
         <div className='vertical-list'>
-        <Typography  variant='h4' style={head} >Period</Typography>
+        <Typography  variant='h4' style={head} >Year</Typography>
 
         <select className='drop-down-year2' value={years[ind] ? years[ind] : 1} onChange={(e) => changedropdown(e,ind)}>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                    <option value={6}>6</option>
-                    <option value={7}>7</option>
-                    <option value={8}>8</option>
-                    <option value={9}>9</option>
-                    <option value={10}>10</option>
+                    <option value={1}>1 year</option>
+                    <option value={2}>2 year</option>
+                    <option value={3}>3 year</option>
+                    <option value={4}>4 year</option>
+                    <option value={5}>5 year</option>
+                    <option value={6}>6 year</option>
+                    <option value={7}>7 year</option>
+                    <option value={8}>8 year</option>
+                    <option value={9}>9 year</option>
+                    <option value={10}>10 year</option>
         </select>
 
         </div>    
@@ -194,12 +198,11 @@ function Cart_step2() {
             <br />
             <Typography variant='h3' color='blue'>you save ₹ 550</Typography>
             </div>
-            <IconButton className='remove-btn' onClick={() => deleteitems(ind)}><icons.DeleteOutline /></IconButton>
        </div>
        </div>
         }
       }  
-        ))}
+        )) : <></>}
       
       {/* =============================================showing hosting advisor when hosting not available=========================== */}
       {checkhostingavailable() ? <></> : <HostingAdviser /> }  

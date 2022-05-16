@@ -2,7 +2,7 @@ body{
     scroll-behavior: smooth;
 }
 .search-container{
-    background: linear-gradient(45deg, #FFE8B6, #8DFDFF);
+    background: linear-gradient(to right, #1642c6 ,#1642C6,  #0B2163);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,6 +10,7 @@ body{
     padding: 20px 10px;
     min-height: 500px;
     justify-content: center;
+    color: white;
 }
 .search-box{
     width: 100%;
@@ -17,10 +18,11 @@ body{
     height: 50px;
     border: none;
     outline: none;
+    border-radius: 30px;
 }
 .search-btn{
-    width: 100px;
-    background-color: #000e9c;
+    width: 200px;
+    background-color: #05CC19;
     color: white;
     border: none;
     font-size: 22px;
@@ -29,7 +31,9 @@ body{
     font-weight: 600;
     cursor: pointer;
     font-family: roboto condensed;
-    height: 56px;
+    height: 50px;
+    border-radius: 30px;
+    margin-left: -50%;
 }
 
 
@@ -70,6 +74,7 @@ body{
     height: 400px;
     object-fit: cover;
     text-align: center;
+    margin: auto;
 }
 
 .web-hosting-box {
@@ -78,6 +83,16 @@ body{
     align-items: flex-start;
     text-align: left;
     padding: 20px;
+}
+
+.connectwithmember{
+    background-color: #1642C6;
+    color: white;
+    padding: 24px;
+}
+
+.connectwithmember-card{
+    padding: 10px;
 }
 
 @media only screen and (max-width: 500px) {

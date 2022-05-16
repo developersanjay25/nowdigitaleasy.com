@@ -10,6 +10,8 @@ import LoginSignup from './loginsignup/Loginsignup';
 import Proceedtopay from './order/Proceedtopay';
 import Cart_step2 from './order/Cart-step2';
 import Testimonials from './order/Testimonials';
+import ConnectwithMembers from './homepage/ConnectwithMembers';
+import Moredetails from './homepage/Moredetails';
 
 
 function App() {
@@ -18,18 +20,10 @@ function App() {
   
   return (
     <div className="App">
-      <Header />
         
-        <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={preloader}
-      >
-        <CircularProgress color="inherit" />
-    </Backdrop>
-
-
-
         <Hompage />
+        <Moredetails />
+        <ConnectwithMembers />
         <Testimonials />
       <Footer />  
      </div>

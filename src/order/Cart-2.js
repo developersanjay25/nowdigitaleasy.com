@@ -1,11 +1,12 @@
 import { ThemeProvider } from '@emotion/react';
-import { Button, Divider, IconButton, Typography } from '@mui/material'
+import { Button, Divider, IconButton, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil';
 import { cartt, pricingg, stepperstepp, totalamountt, yearss } from '../atoms/orderpage';
 import './cart_step2.css'
 import theme from '../theme'
 import * as icons from '@mui/icons-material'
+import { Box } from '@mui/system';
 
 function Cart2() {
     
@@ -78,8 +79,8 @@ function Cart2() {
     if(arr.type == 'g-workspace'){
       return <div className='final-cart'>
       <div>
-      <Typography variant='h4'>Google Workspace ({arr.name})<IconButton onClick={() => deleteitems(ind)}> <icons.CancelOutlined fontSize='small' /></IconButton></Typography>
-      <Typography variant='h4'>{arr.name} ( for {arr.domainforgwork})</Typography>
+      <Typography variant='h4'>Google workspace {arr.name.split(' ')[1]} ( for {arr.domainforgwork})<IconButton onClick={() => deleteitems(ind)}> <icons.CancelOutlined fontSize='small' /></IconButton></Typography>
+      <Typography variant='h4'>{arr.mailcount} Account</Typography>
       </div>
 
       <div>
@@ -92,8 +93,8 @@ function Cart2() {
     else if(arr.type == 'hosting'){
       return <div className='final-cart'>
       <div>
-      <Typography variant='h4'>Hosting ({arr.name})<IconButton onClick={() => deleteitems(ind)}> <icons.CancelOutlined fontSize='small' /></IconButton></Typography>
-      <Typography variant='h4'>{arr.name} ( for {arr.domainforgwork})</Typography>
+      <Typography variant='h4'>{arr.name} Hosting ( for {arr.domainforgwork})<IconButton onClick={() => deleteitems(ind)}> <icons.CancelOutlined fontSize='small' /></IconButton></Typography>
+      <Typography variant='h4'>1 Year</Typography>
       </div>
 
       <div>
@@ -116,6 +117,14 @@ function Cart2() {
     </div>
     }
     })}
+
+    <Divider />
+
+    <Box padding={'10px 0'}>
+      <TextField size='small' label='Coupen code'/>
+    </Box>
+
+    <Divider />
 
     <div className='final-cart'>
         <div>

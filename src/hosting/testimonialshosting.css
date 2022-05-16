@@ -1,5 +1,6 @@
 .testimonials-hosting{
-    background-color: rgb(212, 212, 212);
+    background-color: #1642c6;
+    color: white;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -9,10 +10,16 @@
 .container-hosting{
     width: 250px;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .img-vector{
     max-width: 100px;
-    max-height: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    object-fit: contain;
 }
 .man-sitting{
     width: 500px;
